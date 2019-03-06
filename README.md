@@ -25,17 +25,24 @@ Search by:
 - Name
 - Type(s)
 - Sprite
-- Stats
-  - All stats
-- Moves
-  - All moves
+
+### Stat
 
 ### Team
 
+Add from the PokemonDescription
+
 ### TeamMember
+
+Shows:
+
+- Name
+- Sprite
 
 ### MovesList
 
+Total move list of the current pokemon that is being searched.
+
 ### MoveDescription
 
-Move List off to the side of the application
+Move description of the currently selected move.
