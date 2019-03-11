@@ -1,10 +1,13 @@
+
 import React from 'react';
 import SearchBar from './SearchBar';
 import PokemonDescription from './PokemonDescription';
 import '../styles/PokeTeamBuilder.css';
 import PokemonStatList from './PokemonStatList';
+import PokemonMoveList from "./PokemonMoveList";
 
-const Pokedex = require('pokeapi-js-wrapper');
+
+const Pokedex = require("pokeapi-js-wrapper");
 
 const myPokedex = new Pokedex.Pokedex();
 
@@ -13,14 +16,14 @@ class PokeTeamBuilder extends React.Component {
     super(props);
 
     this.state = {
-      currentPokemon: {},
+      currentPokemon: {}
     };
   }
 
-  handleSearchByName = async name => {
+  handleSearchByName = async (name) => {
     myPokedex
       .getPokemonByName(name)
-      .then(response => {
+      .then((response) => {
         console.log(response);
         return this.setState({ currentPokemon: response });
       })
@@ -33,6 +36,7 @@ class PokeTeamBuilder extends React.Component {
         <SearchBar onSearchPokemon={this.handleSearchByName} />
         <PokemonStatList pokemonStatList={this.state.currentPokemon.stats} />
         <PokemonDescription currentPokemon={this.state.currentPokemon} />
+        <PokemonMoveList pokemonMoveList={this.state.currentPokemon.moves} />
       </main>
     );
   }

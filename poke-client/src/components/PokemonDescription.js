@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/PokemonDescription.css';
+import React from "react";
+import "../styles/PokemonDescription.css";
 
 class PokemonDescription extends React.Component {
   render() {
@@ -14,7 +14,9 @@ class PokemonDescription extends React.Component {
             alt="Pokemon Sprite"
           />
           <h2 id="description-header-name">{currentPokemon.name}</h2>
-          <button id="description-header-add">+</button>
+          <button id="description-header-add" type="submit">
+            +
+          </button>
         </header>
         <h3>Types</h3>
         <ul>
