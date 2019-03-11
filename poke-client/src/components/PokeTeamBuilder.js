@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import PokemonDescription from './PokemonDescription';
 import '../styles/PokeTeamBuilder.css';
+import PokemonStatList from './PokemonStatList';
 
 const Pokedex = require('pokeapi-js-wrapper');
 
@@ -30,6 +31,7 @@ class PokeTeamBuilder extends React.Component {
     return (
       <main className="poke-team-builder">
         <SearchBar onSearchPokemon={this.handleSearchByName} />
+        <PokemonStatList pokemonStatList={this.state.currentPokemon.stats} />
         <PokemonDescription currentPokemon={this.state.currentPokemon} />
       </main>
     );

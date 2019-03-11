@@ -26,7 +26,9 @@ Search by:
 - Type(s)
 - Sprite
 
-### Stat
+### StatsList
+
+Display the stats of the pokemon being searched
 
 ### Team
 
@@ -39,7 +41,7 @@ Shows:
 - Name
 - Sprite
 
-### MovesList
+### PokemonMoveList
 
 Total move list of the current pokemon that is being searched.
 
