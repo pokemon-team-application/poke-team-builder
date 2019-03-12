@@ -49,4 +49,3 @@ Total move list of the current pokemon that is being searched.
 
 Move description of the currently selected move.
 
-Hello
