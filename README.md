@@ -48,4 +48,3 @@ Total move list of the current pokemon that is being searched.
 ### MoveDescription
 
 Move description of the currently selected move.
-
