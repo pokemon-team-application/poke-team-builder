@@ -6,6 +6,7 @@ const PokemonStatList = props => {
   if (!pokemonStatList) return <aside className="pokemon-stat-list" />;
   return (
     <aside className="pokemon-stat-list">
+      <h2>Base Stats</h2>
       <ul>
         {pokemonStatList.map(stat => (
           <li key={stat.stat.name}>
