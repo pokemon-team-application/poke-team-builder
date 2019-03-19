@@ -1,30 +1,31 @@
-import React from "react";
+import React from 'react';
+import '../styles/SearchBar.css';
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      searchTextValue: ""
+      searchTextValue: '',
     };
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ searchTextValue: event.target.value });
   };
 
-  handleSearch = (event) => {
+  handleSearch = event => {
     event.preventDefault();
     this.props.onSearchPokemon(this.state.searchTextValue);
   };
 
   render() {
     return (
-      <form className="SearchBar" onSubmit={this.handleSearch}>
+      <form className="search-bar" onSubmit={this.handleSearch}>
         <input
           type="text"
           name="search"
-          placeholder="Search here"
+          placeholder="Search by name"
           value={this.state.searchTextValue}
           onChange={this.handleChange}
         />
