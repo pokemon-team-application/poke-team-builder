@@ -1,7 +1,12 @@
-import React from 'react';
-import '../styles/PokemonDescription.css';
+import React from "react";
+import "../styles/PokemonDescription.css";
 
 class PokemonDescription extends React.Component {
+  handleAdd = (event) => {
+    event.preventDefault();
+    this.props.handleAddPokemon();
+  };
+
   render() {
     const { currentPokemon } = this.props;
     if (!currentPokemon.id) return <section className="pokemon-description" />;
@@ -14,7 +19,11 @@ class PokemonDescription extends React.Component {
             alt="Pokemon Sprite"
           />
           <h2 id="description-header-name">{currentPokemon.name}</h2>
-          <button id="description-header-add" type="submit">
+          <button
+            id="description-header-add"
+            type="submit"
+            onClick={this.handleAdd}
+          >
             +
           </button>
         </header>
