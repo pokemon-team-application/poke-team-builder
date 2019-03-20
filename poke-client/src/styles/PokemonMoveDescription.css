@@ -1,4 +1,4 @@
-.pokemon-stat-list {
+.pokemon-move-description {
   display: flex;
   flex-flow: column;
   width: 20rem;
@@ -7,28 +7,28 @@
   box-shadow: 2px 2px #888;
 }
 
-.stat-list-header {
+.move-description-header {
   text-align: center;
 }
 
-.stat-unordered-list {
+.move-unordered-list {
   padding: 0;
   display: grid;
   grid-row-gap: 1em;
 }
 
-.stat-list-item {
+.move-list-item {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border-bottom: 1px solid grey;
 }
 
-.stat-name {
+.move-attribute {
   padding: 0rem 0.5rem;
   text-transform: uppercase;
 }
 
-.stat-value {
+.move-attribute-value {
   padding: 0rem 0.5rem;
   justify-self: right;
 }
