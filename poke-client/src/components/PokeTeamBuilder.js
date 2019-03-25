@@ -16,7 +16,7 @@ const apiOptions = {
   protocol: "https",
   versionPath: "/api/v2/",
   cache: true,
-  timeout: 5 * 1000, // 5s
+  timeout: 5 * 1000 // 5s
 };
 
 const myPokedex = new Pokedex.Pokedex(apiOptions);
@@ -29,7 +29,6 @@ class PokeTeamBuilder extends React.Component {
       pokemonList: [],
       currentPokemon: {},
       currentMoveName: ""
-
     };
   }
 
@@ -41,10 +40,10 @@ class PokeTeamBuilder extends React.Component {
     });
   };
 
-  handleSearchByName = async name => {
+  handleSearchByName = async (name) => {
     myPokedex
       .getPokemonByName(name)
-      .then(response => {
+      .then((response) => {
         console.log(response);
         response.uuid = uuidv1();
         return this.setState({ currentPokemon: response });
@@ -74,7 +73,6 @@ class PokeTeamBuilder extends React.Component {
 
       return {
         pokemonList: tempPokemonList
-
       };
     });
   };
@@ -87,10 +85,17 @@ class PokeTeamBuilder extends React.Component {
     return (
       <main className="poke-team-builder">
         <SearchBar onSearchPokemon={this.handleSearchByName} />
+
         <PokemonStatList pokemonStatList={this.state.currentPokemon.stats} />
+
         <PokemonDescription
           currentPokemon={this.state.currentPokemon}
           handleAddPokemon={this.handleAddPokemon}
+        />
+
+        <PokemonMoveDescription
+          pokedex={myPokedex}
+          currentMoveName={this.state.currentMoveName}
         />
         <PokemonMoveList
           pokemonMoveList={this.state.currentPokemon.moves}
@@ -100,11 +105,11 @@ class PokeTeamBuilder extends React.Component {
           pokemonList={this.state.pokemonList}
           onRemovePokemon={this.handleRemovePokemon}
         />
-        <PokemonMoveDescription
-          pokedex={myPokedex}
-          currentMoveName={this.state.currentMoveName}
-        />
 
+        <img
+          src="https://i.makeagif.com/media/10-11-2015/FfRDOx.gif"
+          alt="Ash flip"
+        />
       </main>
     );
   }
