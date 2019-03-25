@@ -12,7 +12,7 @@ class PokemonDescription extends React.Component {
     if (!currentPokemon.id) {
       return (
         <section className="pokemon-description">
-          <h2 id="pokemon-header-name">Pokemon Description</h2>
+          <h2 className="pokemon-empty-header">Pokemon Description</h2>
         </section>
       );
     }

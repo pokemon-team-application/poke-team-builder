@@ -7,6 +7,10 @@
   background: white;
 }
 
+.pokemon-empty-header {
+  text-align: center;
+}
+
 .pokemon-description-header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

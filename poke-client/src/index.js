@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import PokeTeamBuilder from './components/PokeTeamBuilder';
-import './styles/index.css';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import PokeTeamBuilder from "./components/PokeTeamBuilder";
+import "./styles/index.css";
+import "./styles/reset.css";
+import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(<PokeTeamBuilder />, document.getElementById('root'));
+ReactDOM.render(<PokeTeamBuilder />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
