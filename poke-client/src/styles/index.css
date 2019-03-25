@@ -3,7 +3,16 @@
   src: url("pokemon.ttf");
 }
 
-h1,
+@font-face {
+  font-family: "pokemonclass";
+  src: url("pokemonclass.ttf");
+}
+
+/* h1,
 h2 {
   font-family: pokemon;
+} */
+
+:root {
+  font-family: pokemonclass;
 }

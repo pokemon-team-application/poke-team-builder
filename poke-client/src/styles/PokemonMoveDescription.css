@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column;
   width: 20rem;
-  height: 20rem;
+  height: auto;
   border: 2px solid black;
   box-shadow: 2px 2px #888;
   background: white;
