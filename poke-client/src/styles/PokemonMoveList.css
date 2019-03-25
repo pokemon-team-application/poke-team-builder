@@ -1,2 +1,12 @@
+.move-title {
+  text-align: center;
+}
+
 .pokemon-move-list {
+  width: 20rem;
+  height: auto;
+  border: 2px solid black;
+  box-shadow: 2px 2px #888;
+  padding: 5px;
+  background: white;
 }

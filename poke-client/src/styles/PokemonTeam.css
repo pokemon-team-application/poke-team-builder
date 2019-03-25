@@ -1,6 +1,22 @@
+.team-title {
+  text-align: center;
+}
+
 .pokemon-team {
   width: 20rem;
-  height: 20rem;
+  height: auto;
+  max-height: 700px;
   border: 2px solid black;
   box-shadow: 2px 2px #888;
+  background: white;
+}
+
+.poke-bullets {
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+}
+
+.delete-button {
+  border-radius: 25px;
 }
