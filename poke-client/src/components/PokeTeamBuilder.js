@@ -12,7 +12,14 @@ const uuidv1 = require("uuid/v1");
 
 const Pokedex = require("pokeapi-js-wrapper");
 
-const myPokedex = new Pokedex.Pokedex();
+const apiOptions = {
+  protocol: "https",
+  versionPath: "/api/v2/",
+  cache: true,
+  timeout: 5 * 1000, // 5s
+};
+
+const myPokedex = new Pokedex.Pokedex(apiOptions);
 
 class PokeTeamBuilder extends React.Component {
   constructor(props) {
@@ -22,6 +29,7 @@ class PokeTeamBuilder extends React.Component {
       pokemonList: [],
       currentPokemon: {},
       currentMoveName: ""
+
     };
   }
 
@@ -33,10 +41,10 @@ class PokeTeamBuilder extends React.Component {
     });
   };
 
-  handleSearchByName = async (name) => {
+  handleSearchByName = async name => {
     myPokedex
       .getPokemonByName(name)
-      .then((response) => {
+      .then(response => {
         console.log(response);
         response.uuid = uuidv1();
         return this.setState({ currentPokemon: response });
@@ -66,6 +74,7 @@ class PokeTeamBuilder extends React.Component {
 
       return {
         pokemonList: tempPokemonList
+
       };
     });
   };
@@ -95,6 +104,7 @@ class PokeTeamBuilder extends React.Component {
           pokedex={myPokedex}
           currentMoveName={this.state.currentMoveName}
         />
+
       </main>
     );
   }
