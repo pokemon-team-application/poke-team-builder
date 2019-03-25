@@ -19,20 +19,19 @@ class PokeTeamBuilder extends React.Component {
     super(props);
 
     this.state = {
-      team: {
-        pokemonList: []
-      },
+      pokemonList: [],
       currentPokemon: {},
       currentMoveName: ""
     };
   }
 
-  // componentDidMount = () => {
-  //   this.ref = base.syncState("team", {
-  //     context: this,
-  //     state: "team"
-  //   });
-  // };
+  componentDidMount = () => {
+    this.ref = base.syncState("team", {
+      context: this,
+      state: "pokemonList",
+      asArray: true
+    });
+  };
 
   handleSearchByName = async (name) => {
     myPokedex
@@ -46,31 +45,27 @@ class PokeTeamBuilder extends React.Component {
   };
 
   handleAddPokemon = () => {
-    if (this.state.team.pokemonList.length < 6) {
+    if (this.state.pokemonList.length < 6) {
       this.setState(prevState => ({
-        team: {
-          pokemonList: [...prevState.team.pokemonList, prevState.currentPokemon]
-        }
+        pokemonList: [...prevState.pokemonList, prevState.currentPokemon]
       }));
     } else {
       alert("You must construct additional pylons");
     }
 
-    console.log("TEAM LIST", this.state.team.pokemonList);
+    console.log("TEAM LIST", this.state.pokemonList);
   };
 
   handleRemovePokemon = (uuid) => {
     this.setState((prevState) => {
-      const tempPokemonList = prevState.team.pokemonList;
+      const tempPokemonList = prevState.pokemonList;
       const pokeIndex = tempPokemonList.findIndex(
         pokemon => pokemon.uuid === uuid
       );
       tempPokemonList.splice(pokeIndex, 1);
 
       return {
-        team: {
-          pokemonList: tempPokemonList
-        }
+        pokemonList: tempPokemonList
       };
     });
   };
@@ -93,7 +88,7 @@ class PokeTeamBuilder extends React.Component {
           onSelectMove={this.handleSelectMove}
         />
         <PokemonTeam
-          team={this.state.team}
+          pokemonList={this.state.pokemonList}
           onRemovePokemon={this.handleRemovePokemon}
         />
         <PokemonMoveDescription
