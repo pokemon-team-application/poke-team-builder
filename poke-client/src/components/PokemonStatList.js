@@ -1,7 +1,7 @@
-import React from 'react';
-import '../styles/PokemonStatList.css';
+import React from "react";
+import "../styles/PokemonStatList.css";
 
-const PokemonStatList = props => {
+const PokemonStatList = (props) => {
   const { pokemonStatList } = props;
   if (!pokemonStatList) return <aside className="pokemon-stat-list" />;
   return (
