@@ -5,6 +5,7 @@
   height: 20rem;
   border: 2px solid black;
   box-shadow: 2px 2px #888;
+  background: white;
 }
 
 .move-description-header {

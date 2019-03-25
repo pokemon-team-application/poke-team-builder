@@ -107,6 +107,7 @@ class PokeTeamBuilder extends React.Component {
         />
 
         <img
+          className="ash-flip"
           src="https://i.makeagif.com/media/10-11-2015/FfRDOx.gif"
           alt="Ash flip"
         />
