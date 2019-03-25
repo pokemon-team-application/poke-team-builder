@@ -26,20 +26,20 @@ class PokeTeamBuilder extends React.Component {
     super(props);
 
     this.state = {
-      team: {
-        pokemonList: [],
-      },
+      pokemonList: [],
       currentPokemon: {},
-      currentMoveName: "",
+      currentMoveName: ""
+
     };
   }
 
-  // componentDidMount = () => {
-  //   this.ref = base.syncState("team", {
-  //     context: this,
-  //     state: "team"
-  //   });
-  // };
+  componentDidMount = () => {
+    this.ref = base.syncState("team", {
+      context: this,
+      state: "pokemonList",
+      asArray: true
+    });
+  };
 
   handleSearchByName = async name => {
     myPokedex
@@ -53,34 +53,33 @@ class PokeTeamBuilder extends React.Component {
   };
 
   handleAddPokemon = () => {
-    if (this.state.team.pokemonList.length < 6) {
+    if (this.state.pokemonList.length < 6) {
       this.setState(prevState => ({
-        team: {
-          pokemonList: [...prevState.team.pokemonList, prevState.currentPokemon],
-        },
+        pokemonList: [...prevState.pokemonList, prevState.currentPokemon]
       }));
     } else {
       alert("You must construct additional pylons");
     }
 
-    console.log("TEAM LIST", this.state.team.pokemonList);
+    console.log("TEAM LIST", this.state.pokemonList);
   };
 
-  handleRemovePokemon = uuid => {
-    this.setState(prevState => {
-      const tempPokemonList = prevState.team.pokemonList;
-      const pokeIndex = tempPokemonList.findIndex(pokemon => pokemon.uuid === uuid);
+  handleRemovePokemon = (uuid) => {
+    this.setState((prevState) => {
+      const tempPokemonList = prevState.pokemonList;
+      const pokeIndex = tempPokemonList.findIndex(
+        pokemon => pokemon.uuid === uuid
+      );
       tempPokemonList.splice(pokeIndex, 1);
 
       return {
-        team: {
-          pokemonList: tempPokemonList,
-        },
+        pokemonList: tempPokemonList
+
       };
     });
   };
 
-  handleSelectMove = currentMoveName => {
+  handleSelectMove = (currentMoveName) => {
     this.setState({ currentMoveName });
   };
 
@@ -97,8 +96,15 @@ class PokeTeamBuilder extends React.Component {
           pokemonMoveList={this.state.currentPokemon.moves}
           onSelectMove={this.handleSelectMove}
         />
-        <PokemonTeam team={this.state.team} onRemovePokemon={this.handleRemovePokemon} />
-        <PokemonMoveDescription pokedex={myPokedex} currentMoveName={this.state.currentMoveName} />
+        <PokemonTeam
+          pokemonList={this.state.pokemonList}
+          onRemovePokemon={this.handleRemovePokemon}
+        />
+        <PokemonMoveDescription
+          pokedex={myPokedex}
+          currentMoveName={this.state.currentMoveName}
+        />
+
       </main>
     );
   }

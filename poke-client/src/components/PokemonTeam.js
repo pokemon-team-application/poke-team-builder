@@ -3,10 +3,11 @@ import "../styles/PokemonTeam.css";
 
 class PokemonTeam extends React.Component {
   render() {
-    const { team, onRemovePokemon } = this.props;
+    const { pokemonList, onRemovePokemon } = this.props;
 
-    if (team.pokemonList.length === 0) {
-      console.log("IF STATE RUNNING");
+    if (pokemonList.length === 0) {
+      console.log("Not Rendering");
+      console.log(pokemonList);
       return <section> YOU HAVE NO TEAM MATES!</section>;
     }
 
@@ -14,7 +15,7 @@ class PokemonTeam extends React.Component {
       <section className="pokemon-team">
         <h2>Team</h2>
         <ul>
-          {team.pokemonList.map(pokemon => (
+          {pokemonList.map(pokemon => (
             <li key={pokemon.uuid}>
               <img src={pokemon.sprites.front_default} alt="Pokemon Sprite" />
               <span>{pokemon.name}</span>
