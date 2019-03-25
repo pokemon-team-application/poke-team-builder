@@ -9,7 +9,13 @@ class PokemonDescription extends React.Component {
 
   render() {
     const { currentPokemon } = this.props;
-    if (!currentPokemon.id) return <section className="pokemon-description" />;
+    if (!currentPokemon.id) {
+      return (
+        <section className="pokemon-description">
+          <h2 id="pokemon-header-name">Pokemon Description</h2>
+        </section>
+      );
+    }
     return (
       <section className="pokemon-description">
         <header className="pokemon-description-header">

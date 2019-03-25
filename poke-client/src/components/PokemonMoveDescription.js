@@ -30,7 +30,11 @@ class PokemonMoveDescription extends React.Component {
     const { currentMoveName } = this.props;
     const { currentMove } = this.state;
     if (currentMoveName === "") {
-      return <aside className="pokemon-move-description" />;
+      return (
+        <aside className="pokemon-move-description">
+          <h2 className="move-description-header">Move Attributes</h2>
+        </aside>
+      );
     }
     return (
       <aside className="pokemon-move-description">

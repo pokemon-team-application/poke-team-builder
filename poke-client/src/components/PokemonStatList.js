@@ -3,7 +3,13 @@ import "../styles/PokemonStatList.css";
 
 const PokemonStatList = (props) => {
   const { pokemonStatList } = props;
-  if (!pokemonStatList) return <aside className="pokemon-stat-list" />;
+  if (!pokemonStatList) {
+    return (
+      <aside className="pokemon-stat-list">
+        <h2 className="stat-list-header">Pokemon Base Stats</h2>
+      </aside>
+    );
+  }
   return (
     <aside className="pokemon-stat-list">
       <h2 className="stat-list-header">Pokemon Base Stats</h2>
