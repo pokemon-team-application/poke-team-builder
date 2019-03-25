@@ -1,4 +1,3 @@
-
 import React from "react";
 import base from "../base";
 import SearchBar from "./SearchBar";
@@ -7,7 +6,7 @@ import "../styles/PokeTeamBuilder.css";
 import PokemonStatList from "./PokemonStatList";
 import PokemonMoveList from "./PokemonMoveList";
 import PokemonTeam from "./PokemonTeam";
-import PokemonMoveDescription from './PokemonMoveDescription';
+import PokemonMoveDescription from "./PokemonMoveDescription";
 
 const uuidv1 = require("uuid/v1");
 
@@ -24,7 +23,7 @@ class PokeTeamBuilder extends React.Component {
         pokemonList: []
       },
       currentPokemon: {},
-      currentMoveName: '',
+      currentMoveName: ""
     };
   }
 
@@ -76,9 +75,8 @@ class PokeTeamBuilder extends React.Component {
     });
   };
 
-  handleSelectMove = currentMoveName => {
+  handleSelectMove = (currentMoveName) => {
     this.setState({ currentMoveName });
-
   };
 
   render() {
@@ -98,8 +96,10 @@ class PokeTeamBuilder extends React.Component {
           team={this.state.team}
           onRemovePokemon={this.handleRemovePokemon}
         />
-        <PokemonMoveDescription pokedex={myPokedex} currentMoveName={this.state.currentMoveName} />
-
+        <PokemonMoveDescription
+          pokedex={myPokedex}
+          currentMoveName={this.state.currentMoveName}
+        />
       </main>
     );
   }
