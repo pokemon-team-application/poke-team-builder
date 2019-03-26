@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React from 'react';
 import '../styles/PokemonDescription.css';
 
 class PokemonDescription extends React.Component {
   handleAdd = event => {
-    event.preventDefault();
+    // event.preventDefault();
     this.props.handleAddPokemon();
   };
 
@@ -25,13 +26,6 @@ class PokemonDescription extends React.Component {
             alt='Pokemon Sprite'
           />
           <h2 id='description-header-name'>{currentPokemon.name}</h2>
-          <button
-            id='description-header-add'
-            type='submit'
-            onClick={this.handleAdd}
-          >
-            +
-          </button>
         </header>
         <div className='poke_info'>
           <h3>Types</h3>
@@ -46,6 +40,17 @@ class PokemonDescription extends React.Component {
               <li key={ability.ability.name}>{ability.ability.name}</li>
             ))}
           </ul>
+          <div className='capture-container'>
+            <img
+              className='capture-picture'
+              src='https://archive-media-1.nyafuu.org/vp/image/1418/00/1418001683870.png'
+              alt='Team Rocket PokeBall'
+              onClick={() => this.handleAdd()}
+              role='button'
+              onKeyPress={this.handleKeyPress}
+            />
+            <span>Capture this Pokemon!</span>
+          </div>
         </div>
       </section>
     );

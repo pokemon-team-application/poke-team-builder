@@ -58,7 +58,7 @@ class PokeTeamBuilder extends React.Component {
         pokemonList: [...prevState.pokemonList, prevState.currentPokemon]
       }));
     } else {
-      alert('You must construct additional pylons');
+      alert('You have TOO MUCH POKEMON!');
     }
 
     console.log('TEAM LIST', this.state.pokemonList);

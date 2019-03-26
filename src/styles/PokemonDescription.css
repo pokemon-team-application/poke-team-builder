@@ -23,12 +23,16 @@
   padding-left: 1rem;
 }
 
-#description-header-add {
-  justify-self: end;
-  align-self: start;
-  padding: 0;
-  line-height: 3rem;
-  font-size: 2rem;
-  width: 3rem;
-  height: 3rem;
+.capture-container {
+  display: flex;
+  flex-direction: row;
+}
+.capture-picture {
+  height: 150px;
+  width: 150px;
+  opacity: 0.5;
+}
+
+.capture-picture:hover {
+  opacity: 1;
 }
