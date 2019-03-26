@@ -18,19 +18,15 @@ class PokemonCurrentInfo extends React.Component {
           <h3>Moves</h3>
           <ul>
             {currentPokemon.currentMoves ? (
-              currentPokemon.currentMoves.map(type => (
-                <li key={type.type.name}>{type.type.name}</li>
-              ))
+              currentPokemon.currentMoves.map((move, i) => <li key={i}>{move}</li>)
             ) : (
               <li>No current Moves</li>
             )}
           </ul>
           <h3>Item</h3>
           <ul>
-            {currentPokemon.currentItem ? (
-              currentPokemon.currentItem.map(ability => (
-                <li key={ability.ability.name}>{ability.ability.name}</li>
-              ))
+            {currentPokemon.currentItem !== '' ? (
+              <li>{currentPokemon.currentItem}</li>
             ) : (
               <li>No Item Held</li>
             )}
