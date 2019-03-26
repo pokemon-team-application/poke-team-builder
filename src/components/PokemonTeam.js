@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React from 'react';
 import '../styles/PokemonTeam.css';
 
 class PokemonTeam extends React.Component {
   render() {
-    const { pokemonList, onRemovePokemon } = this.props;
+    const { pokemonList, onRemovePokemon, onShowPokemon } = this.props;
 
     if (pokemonList.length === 0) {
       return (
@@ -23,7 +24,14 @@ class PokemonTeam extends React.Component {
                 src='https://66.media.tumblr.com/1d710c53dddcd114b42e4781fa1c52cf/tumblr_inline_mi3fpcf9fz1roozkr.png'
                 alt='Poke Bullet'
               />
-              <img src={pokemon.sprites.front_default} alt='Pokemon Sprite' />
+              <img
+                className='poke-picture'
+                src={pokemon.sprites.front_default}
+                alt='Pokemon Sprite'
+                onClick={() => onShowPokemon(pokemon)}
+                role='button'
+                onKeyPress={this.handleKeyPress}
+              />
               <span>{pokemon.name}</span>
               <span />
               <button

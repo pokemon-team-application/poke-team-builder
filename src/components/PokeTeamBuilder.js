@@ -80,9 +80,16 @@ class PokeTeamBuilder extends React.Component {
     this.setState({ currentMoveName });
   };
 
+  handleShowPokemon = pokemon => {
+    console.log(pokemon);
+    this.setState({ currentPokemon: pokemon });
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
+
   render() {
     return (
-      <main className="poke-team-builder">
+      <main className='poke-team-builder'>
         <SearchBar onSearchPokemon={this.handleSearchByName} />
 
         <PokemonStatList pokemonStatList={this.state.currentPokemon.stats} />
@@ -100,8 +107,8 @@ class PokeTeamBuilder extends React.Component {
         <PokemonTeam
           pokemonList={this.state.pokemonList}
           onRemovePokemon={this.handleRemovePokemon}
+          onShowPokemon={this.handleShowPokemon}
         />
-
         <PokemonCurrentInfo
           currentPokemon={this.state.currentPokemon}
           handleAddPokemon={this.handleAddPokemon}
