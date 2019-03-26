@@ -1,17 +1,7 @@
 @font-face {
-  font-family: "pokemon";
-  src: url("pokemon.ttf");
+  font-family: 'pokemonclass';
+  src: url('pokemonclass.ttf');
 }
-
-@font-face {
-  font-family: "pokemonclass";
-  src: url("pokemonclass.ttf");
-}
-
-/* h1,
-h2 {
-  font-family: pokemon;
-} */
 
 :root {
   font-family: pokemonclass;
