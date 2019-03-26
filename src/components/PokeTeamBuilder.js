@@ -7,6 +7,7 @@ import PokemonStatList from './PokemonStatList';
 import PokemonMoveList from './PokemonMoveList';
 import PokemonTeam from './PokemonTeam';
 import PokemonMoveDescription from './PokemonMoveDescription';
+import PokemonCurrentInfo from './PokemonCurrentInfo';
 
 const uuidv1 = require('uuid/v1');
 
@@ -16,7 +17,7 @@ const apiOptions = {
   protocol: 'https',
   versionPath: '/api/v2/',
   cache: true,
-  timeout: 5 * 1000 // 5s
+  timeout: 5 * 1000, // 5s
 };
 
 const myPokedex = new Pokedex.Pokedex(apiOptions);
@@ -28,7 +29,7 @@ class PokeTeamBuilder extends React.Component {
     this.state = {
       pokemonList: [],
       currentPokemon: {},
-      currentMoveName: ''
+      currentMoveName: '',
     };
   }
 
@@ -36,7 +37,7 @@ class PokeTeamBuilder extends React.Component {
     this.ref = base.syncState('team', {
       context: this,
       state: 'pokemonList',
-      asArray: true
+      asArray: true,
     });
   };
 
@@ -54,7 +55,7 @@ class PokeTeamBuilder extends React.Component {
   handleAddPokemon = () => {
     if (this.state.pokemonList.length < 6) {
       this.setState(prevState => ({
-        pokemonList: [...prevState.pokemonList, prevState.currentPokemon]
+        pokemonList: [...prevState.pokemonList, prevState.currentPokemon],
       }));
     } else {
       alert('You must construct additional pylons');
@@ -66,13 +67,11 @@ class PokeTeamBuilder extends React.Component {
   handleRemovePokemon = uuid => {
     this.setState(prevState => {
       const tempPokemonList = prevState.pokemonList;
-      const pokeIndex = tempPokemonList.findIndex(
-        pokemon => pokemon.uuid === uuid
-      );
+      const pokeIndex = tempPokemonList.findIndex(pokemon => pokemon.uuid === uuid);
       tempPokemonList.splice(pokeIndex, 1);
 
       return {
-        pokemonList: tempPokemonList
+        pokemonList: tempPokemonList,
       };
     });
   };
@@ -100,10 +99,7 @@ class PokeTeamBuilder extends React.Component {
           handleAddPokemon={this.handleAddPokemon}
         />
 
-        <PokemonMoveDescription
-          pokedex={myPokedex}
-          currentMoveName={this.state.currentMoveName}
-        />
+        <PokemonMoveDescription pokedex={myPokedex} currentMoveName={this.state.currentMoveName} />
         <PokemonMoveList
           pokemonMoveList={this.state.currentPokemon.moves}
           onSelectMove={this.handleSelectMove}
@@ -113,11 +109,9 @@ class PokeTeamBuilder extends React.Component {
           onRemovePokemon={this.handleRemovePokemon}
           onShowPokemon={this.handleShowPokemon}
         />
-
-        <img
-          className='ash-flip'
-          src='https://i.makeagif.com/media/10-11-2015/FfRDOx.gif'
-          alt='Ash flip'
+        <PokemonCurrentInfo
+          currentPokemon={this.state.currentPokemon}
+          handleAddPokemon={this.handleAddPokemon}
         />
       </main>
     );

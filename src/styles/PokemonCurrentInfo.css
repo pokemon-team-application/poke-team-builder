@@ -1,0 +1,25 @@
+.pokemon-current-info {
+  width: 20rem;
+  height: auto;
+  border: 2px solid black;
+  box-shadow: 2px 2px #888;
+  background: white;
+}
+
+.pokemon-current-info-header {
+  text-align: center;
+}
+
+.poke_info {
+  padding-left: 1rem;
+}
+
+#description-header-add {
+  justify-self: end;
+  align-self: start;
+  padding: 0;
+  line-height: 3rem;
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+}
