@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.poke-picture:hover {
+  background-image: url('https://files.thetriangle.org/assets/pokemon/ball-poke.png');
+  background-size: cover;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
 .pokemon-team {
   width: 20rem;
   height: auto;
