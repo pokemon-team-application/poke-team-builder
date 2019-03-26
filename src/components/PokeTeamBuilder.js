@@ -17,7 +17,7 @@ const apiOptions = {
   protocol: 'https',
   versionPath: '/api/v2/',
   cache: true,
-  timeout: 5 * 1000, // 5s
+  timeout: 5 * 1000 // 5s
 };
 
 const myPokedex = new Pokedex.Pokedex(apiOptions);
@@ -29,7 +29,7 @@ class PokeTeamBuilder extends React.Component {
     this.state = {
       pokemonList: [],
       currentPokemon: {},
-      currentMoveName: '',
+      currentMoveName: ''
     };
   }
 
@@ -37,7 +37,7 @@ class PokeTeamBuilder extends React.Component {
     this.ref = base.syncState('team', {
       context: this,
       state: 'pokemonList',
-      asArray: true,
+      asArray: true
     });
   };
 
@@ -55,7 +55,7 @@ class PokeTeamBuilder extends React.Component {
   handleAddPokemon = () => {
     if (this.state.pokemonList.length < 6) {
       this.setState(prevState => ({
-        pokemonList: [...prevState.pokemonList, prevState.currentPokemon],
+        pokemonList: [...prevState.pokemonList, prevState.currentPokemon]
       }));
     } else {
       alert('You must construct additional pylons');
@@ -67,11 +67,13 @@ class PokeTeamBuilder extends React.Component {
   handleRemovePokemon = uuid => {
     this.setState(prevState => {
       const tempPokemonList = prevState.pokemonList;
-      const pokeIndex = tempPokemonList.findIndex(pokemon => pokemon.uuid === uuid);
+      const pokeIndex = tempPokemonList.findIndex(
+        pokemon => pokemon.uuid === uuid
+      );
       tempPokemonList.splice(pokeIndex, 1);
 
       return {
-        pokemonList: tempPokemonList,
+        pokemonList: tempPokemonList
       };
     });
   };
@@ -82,7 +84,7 @@ class PokeTeamBuilder extends React.Component {
 
   handleShowPokemon = pokemon => {
     console.log(pokemon);
-    this.setState({ currentPokemon: pokemon });
+    this.setState({ currentPokemon: pokemon, currentMoveName: '' });
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   };
@@ -99,7 +101,10 @@ class PokeTeamBuilder extends React.Component {
           handleAddPokemon={this.handleAddPokemon}
         />
 
-        <PokemonMoveDescription pokedex={myPokedex} currentMoveName={this.state.currentMoveName} />
+        <PokemonMoveDescription
+          pokedex={myPokedex}
+          currentMoveName={this.state.currentMoveName}
+        />
         <PokemonMoveList
           pokemonMoveList={this.state.currentPokemon.moves}
           onSelectMove={this.handleSelectMove}
