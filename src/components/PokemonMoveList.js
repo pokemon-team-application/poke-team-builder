@@ -1,5 +1,5 @@
-import React from "react";
-import "../styles/PokemonMoveList.css";
+import React from 'react';
+import '../styles/PokemonMoveList.css';
 
 class PokemonMoveList extends React.Component {
   render() {
@@ -15,11 +15,7 @@ class PokemonMoveList extends React.Component {
       <aside className="pokemon-move-list">
         <h2 className="move-title">Move List</h2>
         {pokemonMoveList.map(move => (
-          <button
-            key={move.move.name}
-            type="button"
-            onClick={() => onSelectMove(move.move.name)}
-          >
+          <button key={move.move.name} type="button" onClick={() => onSelectMove(move.move.name)}>
             {move.move.name}
           </button>
         ))}
