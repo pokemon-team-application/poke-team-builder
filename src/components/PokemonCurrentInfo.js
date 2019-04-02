@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import '../styles/PokemonCurrentInfo.css';
 
@@ -6,19 +7,21 @@ class PokemonCurrentInfo extends React.Component {
     const { currentPokemon } = this.props;
     if (!currentPokemon.id) {
       return (
-        <section className="pokemon-current-info">
-          <h2 className="pokemon-current-info-header">Pokemon Current Info</h2>
+        <section className='pokemon-current-info'>
+          <h2 className='pokemon-current-info-header'>Pokemon Current Info</h2>
         </section>
       );
     }
     return (
-      <section className="pokemon-description">
-        <h2 className="pokemon-current-info-header">Pokemon Current Info</h2>
-        <div className="poke_info">
+      <section className='pokemon-description'>
+        <h2 className='pokemon-current-info-header'>Pokemon Current Info</h2>
+        <div className='poke_info'>
           <h3>Moves</h3>
           <ul>
             {currentPokemon.currentMoves ? (
-              currentPokemon.currentMoves.map((move, i) => <li key={i}>{move}</li>)
+              currentPokemon.currentMoves.map((move, i) => (
+                <li key={i}>{move}</li>
+              ))
             ) : (
               <li>No current Moves</li>
             )}

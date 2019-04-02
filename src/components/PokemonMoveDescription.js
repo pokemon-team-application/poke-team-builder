@@ -5,7 +5,7 @@ class PokemonMoveDescription extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentMove: {},
+      currentMove: {}
     };
   }
 
@@ -31,47 +31,49 @@ class PokemonMoveDescription extends React.Component {
   };
 
   render() {
-    const { currentMoveName } = this.props;
+    const { currentMoveName, currentPokemonid } = this.props;
     const { currentMove } = this.state;
     if (currentMoveName === '') {
       return (
-        <aside className="pokemon-move-description">
-          <h2 className="move-description-header">Move Attributes</h2>
+        <aside className='pokemon-move-description'>
+          <h2 className='move-description-header'>Move Attributes</h2>
         </aside>
       );
     }
     return (
-      <aside className="pokemon-move-description">
-        <h2 className="move-description-header">Move Attributes</h2>
-        <ul className="move-unordered-list">
-          <li className="move-list-item">
-            <span className="move-attribute">Move Name</span>
-            <span className="move-attribute-value">{currentMove.name}</span>
+      <aside className='pokemon-move-description'>
+        <h2 className='move-description-header'>Move Attributes</h2>
+        <ul className='move-unordered-list'>
+          <li className='move-list-item'>
+            <span className='move-attribute'>Move Name</span>
+            <span className='move-attribute-value'>{currentMove.name}</span>
           </li>
-          <li className="move-list-item">
-            <span className="move-attribute">Accuracy</span>
-            <span className="move-attribute-value">
+          <li className='move-list-item'>
+            <span className='move-attribute'>Accuracy</span>
+            <span className='move-attribute-value'>
               {currentMove.accuracy ? currentMove.accuracy : 'N/A'}
             </span>
           </li>
-          <li className="move-list-item">
-            <span className="move-attribute">Power</span>
-            <span className="move-attribute-value">
+          <li className='move-list-item'>
+            <span className='move-attribute'>Power</span>
+            <span className='move-attribute-value'>
               {currentMove.power ? currentMove.power : 'N/A'}
             </span>
           </li>
-          <li className="move-list-item">
-            <span className="move-attribute">PP</span>
-            <span className="move-attribute-value">{currentMove.pp ? currentMove.pp : 'N/A'}</span>
+          <li className='move-list-item'>
+            <span className='move-attribute'>PP</span>
+            <span className='move-attribute-value'>
+              {currentMove.pp ? currentMove.pp : 'N/A'}
+            </span>
           </li>
-          <li className="move-list-item">
-            <span className="move-attribute">Type</span>
-            <span className="move-attribute-value">
+          <li className='move-list-item'>
+            <span className='move-attribute'>Type</span>
+            <span className='move-attribute-value'>
               {currentMove.type ? currentMove.type.name : 'N/A'}
             </span>
           </li>
         </ul>
-        <button onClick={this.handleAddMove}>Add Move</button>
+        <button onClick={this.handleAddMove(currentPokemonid)}>Add Move</button>
       </aside>
     );
   }
